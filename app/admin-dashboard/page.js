@@ -1,5 +1,6 @@
 "use client";
 import React, { useState } from "react";
+import Link from "next/link";
 import {
   LayoutDashboard,
   UserPlus,
@@ -8,7 +9,7 @@ import {
   BookOpen,
   BarChart3,
   LogOut,
-  Activity, // ✅ added so no error
+  Activity,
 } from "lucide-react";
 import { motion } from "framer-motion";
 
@@ -37,33 +38,34 @@ function Sidebar() {
           {/* Dashboard */}
           <div>
             <p className="text-xs font-semibold text-slate-400 mb-2">DASHBOARD</p>
-            <a
-              href="#"
+            <Link
+              href="/dashboard"
               className="flex items-center gap-3 px-3 py-2 rounded-lg bg-gradient-to-r from-indigo-500 to-purple-500 text-white"
             >
               <LayoutDashboard className="w-5 h-5" />
               Dashboard
-            </a>
+            </Link>
           </div>
 
           {/* Teachers */}
           <div>
             <p className="text-xs font-semibold text-slate-400 mb-2">TEACHERS</p>
             <div className="space-y-1">
-              <a
-                href="#"
+              <Link
+                href="/components/create-teacher"
                 className="flex items-center gap-3 px-3 py-2 rounded-lg text-slate-700 hover:bg-slate-100"
               >
                 <UserPlus className="w-5 h-5" />
                 Create Teacher
-              </a>
-              <a
-                href="#"
+              </Link>
+
+              <Link
+                href="/components/view-teachers"
                 className="flex items-center gap-3 px-3 py-2 rounded-lg text-slate-700 hover:bg-slate-100"
               >
                 <Users className="w-5 h-5" />
                 View Teachers
-              </a>
+              </Link>
             </div>
           </div>
 
@@ -71,33 +73,33 @@ function Sidebar() {
           <div>
             <p className="text-xs font-semibold text-slate-400 mb-2">STUDENTS</p>
             <div className="space-y-1">
-              <a
-                href="#"
+              <Link
+                href="/components/create-student"
                 className="flex items-center gap-3 px-3 py-2 rounded-lg text-slate-700 hover:bg-slate-100"
               >
                 <GraduationCap className="w-5 h-5" />
                 Create Student
-              </a>
-              <a
-                href="#"
+              </Link>
+              <Link
+                href="/components/view-students"
                 className="flex items-center gap-3 px-3 py-2 rounded-lg text-slate-700 hover:bg-slate-100"
               >
                 <BookOpen className="w-5 h-5" />
                 View Students
-              </a>
+              </Link>
             </div>
           </div>
 
           {/* Analytics */}
           <div>
             <p className="text-xs font-semibold text-slate-400 mb-2">ANALYTICS</p>
-            <a
-              href="#"
+            <Link
+              href="/components/analytics"
               className="flex items-center gap-3 px-3 py-2 rounded-lg text-slate-700 hover:bg-slate-100"
             >
               <BarChart3 className="w-5 h-5" />
               Reports & Analytics
-            </a>
+            </Link>
           </div>
         </nav>
       </div>
@@ -182,9 +184,7 @@ export default function Dashboard() {
               value={stats.activeTeachers}
               icon={Activity}
               color="green"
-              trend={`${Math.round(
-                (stats.activeTeachers / stats.totalTeachers) * 100
-              )}% active rate`}
+              trend={`${Math.round((stats.activeTeachers / stats.totalTeachers) * 100)}% active rate`}
               isLoading={isLoading}
             />
             <StatsCard

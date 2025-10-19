@@ -1,9 +1,17 @@
 "use client";
+// For a custom Button component
+import { Button } from "@/components/ui/button";
 
 import React, { useState } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { Eye, EyeOff, ArrowLeft, User, Mail, Lock, Check, BookOpen } from "lucide-react";
+
+<button
+  className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 shadow-lg text-white font-semibold py-6 text-lg rounded-xl transition-all duration-300"
+>
+  Access Teacher Portal
+</button>
 
 interface SignupFormProps {
   title?: string;
